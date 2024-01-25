@@ -1,5 +1,8 @@
 {
     "version": 2,
     "builds": [{"src": "./app.js", "use": "@vercel/node"}],
-    "routes": [{"src": "*/(.*)", "dest": "/"}]
+    "routes": [
+        {"src": "/openFile/(.*)", "dest": "/openFile/$1"},
+        {"src": "/convertToWord/(.*)", "dest": "/convertToWord/$1"}
+    ]
 }
