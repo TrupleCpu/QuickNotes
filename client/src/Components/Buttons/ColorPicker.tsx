@@ -1,5 +1,6 @@
 import { useSlate } from "slate-react"
 import { Editor } from "slate"
+import Tooltip from "../Tooltip";
 const ColorPicker = () => {
    const editor = useSlate();
 
@@ -12,7 +13,8 @@ const ColorPicker = () => {
    }
 
   return (
-    <input type='color'
+    <Tooltip content='Color'>
+      <input type='color'
     className="bg-[transparent]"
     onChange={(e) => {
         e.preventDefault();
@@ -20,6 +22,7 @@ const ColorPicker = () => {
         handleColorChange(color);
     }}
     />
+    </Tooltip>
   )
 }
 

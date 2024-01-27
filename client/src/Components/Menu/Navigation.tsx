@@ -9,7 +9,7 @@ import axios from 'axios';
 import ReactToPrint from 'react-to-print';
 
     export const Navigation = () => {
-        const {openMenu, setOpenMenu, setOpenText, openText, contentRef, setOpenSave, setNotSave} = useAppContext();
+        const {openMenu, setOpenMenu, setOpenText, openText, contentRef, setOpenSave, setNotSave, setOpenFileLoader} = useAppContext();
         const openFileRef: any = useRef();
         const [, setFiles] = useState<any>();
         useEffect(() => {
@@ -33,9 +33,10 @@ import ReactToPrint from 'react-to-print';
         setFiles(e.target.files[0]);
          
         const formData = new FormData();
+        setOpenFileLoader(true)
 
         formData.append('file', e.target.files[0]);
-        axios.post('http://localhost:5000/openFile', formData, {
+        axios.post('http://localhost:5000/api/openFile', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }

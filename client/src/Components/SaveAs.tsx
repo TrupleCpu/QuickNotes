@@ -24,7 +24,7 @@ import Loader from './Loader/Loader';
             }
             setLoaderDocx(true)
              
-            axios.post('http://localhost:5000/ConvertToWord', data, {
+            axios.post('http://localhost:5000/api/ConvertToWord', data, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

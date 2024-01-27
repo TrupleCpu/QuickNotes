@@ -1,5 +1,6 @@
 import { Editor } from "slate"
 import { useSlate } from "slate-react"
+import Tooltip from "../Tooltip";
 
 
 interface CustomMark {
@@ -24,7 +25,8 @@ const FontSizePicker = () => {
    const currFontSize = getFontSize ? getFontSize : 14;
 
   return (
-   <select
+  <Tooltip content='Size'>
+     <select
     value={currFontSize}
      onChange={(e) => handleSizeChange(e.target.value)}
       className="bg-[transparent] dark:text-white outline-none text-sm" >
@@ -35,6 +37,7 @@ const FontSizePicker = () => {
         )
     })}
    </select>
+  </Tooltip>
   )
 }
 

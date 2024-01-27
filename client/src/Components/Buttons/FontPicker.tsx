@@ -1,5 +1,6 @@
 import { useSlate } from 'slate-react';
 import { Editor } from 'slate';
+import Tooltip from '../Tooltip';
 
 interface CustomText {
     font?: string
@@ -31,7 +32,8 @@ const FontPicker = () => {
     const getFontSize = editor.selection && (Editor.marks(editor) as CustomText)?.font;
     const currFont = getFontSize ? getFontSize : "";
     return (
-    <select value={currFont} onChange={(e) => handleFontChange(e.target.value)}
+    <Tooltip content='Font Style'>
+        <select value={currFont} onChange={(e) => handleFontChange(e.target.value)}
      className='font-custom outline-none bg-[transparent] dark:text-white text-sm '>
         <option value="" disabled  hidden>Select a font</option>
        {fontFamilies.map((font,index) => {
@@ -40,6 +42,7 @@ const FontPicker = () => {
         )
        })}
     </select>
+    </Tooltip>
   )
 }
 

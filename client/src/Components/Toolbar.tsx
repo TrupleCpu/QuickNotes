@@ -17,6 +17,7 @@ import ColorPicker from "./Buttons/ColorPicker";
 import FontSizePicker from "./Buttons/FontSizePicker";
 import FontPicker from "./Buttons/FontPicker";
 import { useAppContext } from "./Context/AppContextProvider";
+import Tooltip from "./Tooltip";
 const TEXT_ALIGN_TYPES = ['left', 'center', 'right', 'both'];
 
 type CustomProperties = {
@@ -43,7 +44,7 @@ const Header = () => {
   
   return (
     <div onClick={() => setOpenSave(false)} className='z-10 fixed  top-0 left-0 right-0 border-b dark:border-[gray] dark:bg-[#323232] bg-[whitesmoke]  flex flex-wrap items-center  py-1 px-1 '>
-    <button onClick={openNavigation} className="text-gray-400 border-r px-1 text-xl hover:text-[gray]"><CgMenuGridR /></button>
+    <button onClick={openNavigation} className="text-gray-400 border-r px-1 text-xl hover:text-[gray]"><Tooltip content='menu'><CgMenuGridR /></Tooltip></button>
     <MarkButton format='bold' icon={<BsTypeBold />} /> 
     <MarkButton format='italics' icon={<MdFormatItalic />} />
     <MarkButton format='underline' icon={<MdFormatUnderlined />} />
@@ -62,14 +63,18 @@ const Header = () => {
 const MarkButton = ({format, icon}: {format: string, icon: React.ReactNode}) => {
   const editor = useSlate();
   return (
-    <Button
+   
+     <Button
     onMouseDown={(e) => {
       e.preventDefault();
       toggleMark(editor, format);
     }}
     >
-        <Icon  active={isMarkActive(editor, format)}>{icon}</Icon>
+      <Tooltip content={format}>
+      <Icon  active={isMarkActive(editor, format)}>{icon}</Icon>
+      </Tooltip>
     </Button>
+
   )
 }
 
@@ -83,7 +88,9 @@ const BlockButton = ({format, icon}: {format: string, icon: React.ReactNode}) =>
       toggleBlock(editor, format);
     }}
     >
-        <Icon active={isBlockActive(editor, format, TEXT_ALIGN_TYPES.includes(format) ? 'align' : 'type')}>{icon}</Icon>
+       <Tooltip content={format}>
+       <Icon active={isBlockActive(editor, format, TEXT_ALIGN_TYPES.includes(format) ? 'align' : 'type')}>{icon}</Icon>
+      </Tooltip>
     </Button>
    )
 }

@@ -8,6 +8,7 @@ import { useAppContext } from "./Context/AppContextProvider";
 import SaveAs from "./SaveAs";
 import { Helmet } from "react-helmet";
 import NotSaved from "./NotSaved";
+import OpenFileLoader from "./Loader/OpenFileLoader";
 
 interface CustomText extends Text {
     color?: string
@@ -81,6 +82,7 @@ const Notepad = () => {
         />
        </div>
       <SaveAs/>
+      <OpenFileLoader />
       <NotSaved />
      </div>
      <Counter text={text}/>
@@ -88,6 +90,7 @@ const Notepad = () => {
     </>
   )
 }
+
 
 const Leaf = ({attributes, children, leaf}: {attributes: any, children: any, leaf: any}) => {
 

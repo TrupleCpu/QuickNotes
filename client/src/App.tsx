@@ -1,5 +1,5 @@
 import './App.css'
-import {Route, Routes, RedirectFunction} from 'react-router-dom'
+import {Route, Routes} from 'react-router-dom'
 import NotepadMenu from './Components/NotepadMenu/NotepadMenu'
 import Home from './Components/Home/Home'
 import NotFound from './Components/NotFound'

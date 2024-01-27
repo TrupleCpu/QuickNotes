@@ -10,7 +10,9 @@ interface AppContextProps {
     openSave: boolean,
     setOpenSave: React.Dispatch<React.SetStateAction<boolean>>,
     notSave: boolean,
-    setNotSave: React.Dispatch<React.SetStateAction<boolean>>
+    setNotSave: React.Dispatch<React.SetStateAction<boolean>>,
+    openFileLoader: boolean,
+    setOpenFileLoader: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const AppContext = createContext<AppContextProps | undefined>(undefined);
@@ -34,10 +36,11 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({ children
       const [openText, setOpenText] = useState<Array<object> | null>(null);
       const [openSave, setOpenSave] = useState<boolean>(false);
       const [notSave, setNotSave] = useState<boolean>(false)
+      const [openFileLoader, setOpenFileLoader] = useState<boolean>(false)
      const contentRef = useRef<any>()
      const thirdBodyRef = useRef<any>()
     return (
-        <AppContext.Provider value={{notSave, setNotSave, openSave,setOpenSave,openMenu, setOpenMenu, openText, setOpenText, contentRef, thirdBodyRef}}>
+        <AppContext.Provider value={{openFileLoader, setOpenFileLoader,notSave, setNotSave, openSave,setOpenSave,openMenu, setOpenMenu, openText, setOpenText, contentRef, thirdBodyRef}}>
          {children}
         </AppContext.Provider>
     )

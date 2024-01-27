@@ -27,8 +27,8 @@ const NotSaved = () => {
      <p>Did you already saved the changes?</p>
      </div>
      <div className="flex gap-5 py-2">
-      <button onClick={handleClickYes}>Yes</button>
-      <button onClick={handleClick}>Not yet</button>
+      <button onClick={handleClickYes} className='hover:text-[#b7b7b7] transition-all'>Yes</button>
+      <button onClick={handleClick} className='hover:text-[#b7b7b7] transition-all'>Not yet</button>
      </div>
     </motion.div>
    }

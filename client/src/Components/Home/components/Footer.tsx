@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Footer = () => {
   return (
     <div className='bg-[white] border-t py-2 flex items-center justify-center flex-col'>
