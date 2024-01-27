@@ -1,11 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const fs = require('fs');
-const mammoth = require('mammoth')
 const storage = multer.memoryStorage();
 const upload = multer({storage: storage});
-const { Document, Packer, Paragraph } = require('docx');
 
 router.post('/openFile', upload.single('file'), async(req, res) => {
     let textObj = [];
