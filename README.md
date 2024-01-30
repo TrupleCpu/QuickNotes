@@ -6,7 +6,7 @@ First clone the project
 ```js
 git clone https://github.com/TrupleCpu/QuickNotes
 ```
-After clong the project you need to install these two at Client and Server
+After clone the project you need to install these two at Client and Server
 
 ## Client
 ```js
