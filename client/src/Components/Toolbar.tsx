@@ -18,7 +18,7 @@ import FontSizePicker from "./Buttons/FontSizePicker";
 import FontPicker from "./Buttons/FontPicker";
 import { useAppContext } from "./Context/AppContextProvider";
 import Tooltip from "./Tooltip";
-const TEXT_ALIGN_TYPES = ['left', 'center', 'right', 'both'];
+const TEXT_ALIGN_TYPES = ['left', 'center', 'right', 'justify'];
 
 type CustomProperties = {
   align?: string | null;
@@ -34,7 +34,7 @@ interface Transforms {
 }
  
 const Header = () => {
-  const {setOpenMenu, setOpenSave} = useAppContext();
+  const {setOpenMenu, setOpenSave, disableContents} = useAppContext();
 
   const openNavigation = () => {
      setOpenMenu(true);
@@ -43,15 +43,16 @@ const Header = () => {
   
   
   return (
-    <div onClick={() => setOpenSave(false)} className='z-10 fixed  top-0 left-0 right-0 border-b dark:border-[gray] dark:bg-[#323232] bg-[whitesmoke]  flex flex-wrap items-center  py-1 px-1 '>
+    <div onClick={() => setOpenSave(false)} className=' z-10 fixed  top-0 left-0 right-0 border-b dark:border-[gray] dark:bg-[#323232] bg-[whitesmoke]  flex flex-wrap items-center  py-1 px-1 '        style={{pointerEvents: disableContents ? 'none' : 'auto'}}
+    >
     <button onClick={openNavigation} className="text-gray-400 border-r px-1 text-xl hover:text-[gray]"><Tooltip content='menu'><CgMenuGridR /></Tooltip></button>
-    <MarkButton format='bold' icon={<BsTypeBold />} /> 
+    <MarkButton format='bold' icon={<BsTypeBold />}/> 
     <MarkButton format='italics' icon={<MdFormatItalic />} />
     <MarkButton format='underline' icon={<MdFormatUnderlined />} />
     <BlockButton format='left' icon={<MdFormatAlignLeft />} />
     <BlockButton format='right' icon={<MdFormatAlignRight />} />
     <BlockButton format='center' icon={<MdFormatAlignCenter />} />
-    <BlockButton format='both' icon={<MdFormatAlignJustify />} />
+    <BlockButton format='justify' icon={<MdFormatAlignJustify />} />
     <ColorPicker />
     <FontSizePicker />
     <FontPicker />

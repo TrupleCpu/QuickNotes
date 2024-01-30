@@ -28,6 +28,7 @@
     "react-spinners": "^0.13.8",
     "react-to-print": "^2.14.15",
     "slate": "^0.101.5",
+    "slate-history": "^0.100.0",
     "slate-react": "^0.101.5"
   },
   "devDependencies": {

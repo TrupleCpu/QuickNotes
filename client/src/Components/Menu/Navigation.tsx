@@ -9,7 +9,7 @@ import axios from 'axios';
 import ReactToPrint from 'react-to-print';
 
     export const Navigation = () => {
-        const {openMenu, setOpenMenu, setOpenText, openText, contentRef, setOpenSave, setNotSave, setOpenFileLoader} = useAppContext();
+        const {openMenu, setOpenMenu, setOpenText, openText, contentRef, setOpenSave, setNotSave,setPrintLoader, setOpenFileLoader, setDisableContents} = useAppContext();
         const openFileRef: any = useRef();
         const [, setFiles] = useState<any>();
         useEffect(() => {
@@ -34,7 +34,8 @@ import ReactToPrint from 'react-to-print';
          
         const formData = new FormData();
         setOpenFileLoader(true)
-
+        setOpenMenu(false)
+        setDisableContents(true)
         formData.append('file', e.target.files[0]);
         axios.post('http://localhost:5000/api/openFile', formData, {
             headers: {
@@ -58,7 +59,7 @@ import ReactToPrint from 'react-to-print';
             }
             setNotSave(true)
             setOpenMenu(false)
-
+            setDisableContents(true)
           }
           useEffect(() => {
             if(openText){
@@ -73,6 +74,18 @@ import ReactToPrint from 'react-to-print';
             setOpenMenu(false)
             setOpenSave(true)
         }
+
+        const handleBeforePrint = () => {
+            setPrintLoader(true)
+            setOpenMenu(false)
+            setDisableContents(true)
+        }
+
+        const handleAfterPrint = () => {
+            setPrintLoader(false)
+            setDisableContents(false)
+        }
+      
     return (
         <div id='Nav' className='fixed flex flex-col left-0 dark:border-r dark:border-[#4f4f4f] border dark:bg-black bg-[white] z-30 h-[100%] w-0 overflow-hidden  gap-2 text-xl text-[gray] pt-5 transition-all'>
             <Div onClick={NavChangeClick}>
@@ -94,9 +107,11 @@ import ReactToPrint from 'react-to-print';
                 <p className='text-sm font-semibold'>Save </p>
             </Div>
             <ReactToPrint
+  onBeforePrint={handleBeforePrint}
   trigger={() => <Div><PiPrinterThin /><p className='text-sm font-semibold'>Print</p></Div>}
   content={() => contentRef.current}
   pageStyle="@page { size: A4 portrait; margin: 0; } body { text-align: left; }"
+  onAfterPrint={handleAfterPrint}
 /> 
             <DarkModeButton />
         </div>

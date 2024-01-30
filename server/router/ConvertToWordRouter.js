@@ -37,7 +37,7 @@ router.post('/ConvertToWord', async (req, res) => {
             return new Paragraph(
                 {
                      children: textRuns,
-                     alignment: node.align
+                     alignment: node.align === 'justify' ? 'both' : node.align
                 }
                     );
         }

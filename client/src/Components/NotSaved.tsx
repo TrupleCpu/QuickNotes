@@ -3,11 +3,12 @@ import { useAppContext } from './Context/AppContextProvider'
 
 
 const NotSaved = () => {
-  const {setOpenSave, setNotSave, notSave} = useAppContext();
+  const {setOpenSave, setNotSave, notSave, setDisableContents} = useAppContext();
   
   const handleClick = () => {
     setNotSave(false);
     setOpenSave(true);
+    setDisableContents(false)
   }
 
   const handleClickYes = () => {

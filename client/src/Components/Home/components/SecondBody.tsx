@@ -3,8 +3,13 @@ import { BsCloudCheckFill } from "react-icons/bs";
 import { ImParagraphLeft } from "react-icons/im";
 import { MdSpellcheck } from "react-icons/md";
 import { IoPrintSharp } from "react-icons/io5";
-
+import Aos from "aos";
+import 'aos/dist/aos.css'
 const SecondBody = () => {
+    Aos.init({
+        once: true,
+        mirror: false
+      })
   return (
     <>
     <div className="flex flex-wrap justify-center gap-10 items-center px-5 py-2 bg-[whitesmoke]">
@@ -52,7 +57,7 @@ interface DivProps {
 }
 const Div: React.FC<DivProps> = ({children}) => {
     return (
-        <div  className=' w-80 py-3 px-4 flex flex-col items-center'>
+        <div data-aos="fade-down"  className=' w-80 py-3 px-4 flex flex-col items-center'>
             {children}
         </div>
     )

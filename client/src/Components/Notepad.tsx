@@ -9,6 +9,8 @@ import SaveAs from "./SaveAs";
 import { Helmet } from "react-helmet";
 import NotSaved from "./NotSaved";
 import OpenFileLoader from "./Loader/OpenFileLoader";
+import { withHistory } from "slate-history";
+import PrintLoader from "./Loader/PrintLoader";
 
 interface CustomText extends Text {
     color?: string
@@ -17,9 +19,9 @@ interface CustomText extends Text {
 }
 
 const Notepad = () => {
-    const {setOpenMenu, contentRef, setOpenSave} = useAppContext();
+    const {setOpenMenu, contentRef, setOpenSave, disableContents} = useAppContext();
     const [text, setText] = useState<any[]>([]);
-    const editor = useMemo(() => withReact(createEditor()), []);
+    const editor = useMemo(() => withHistory(withReact(createEditor())), []);
     const renderLeaf = useCallback((props: JSX.IntrinsicAttributes & { attributes: any; children: any; leaf: any; }) => <Leaf {...props} />, []);
     const renderElement = useCallback((props: JSX.IntrinsicAttributes & {attributes: any; children: any; element: any}) => <Element {...props} />, [])
     type CustomProperties = {
@@ -63,8 +65,8 @@ const Notepad = () => {
         setOpenMenu(false)
         setOpenSave(false)
     }
-   
     
+   
     return (
         <>
     <Helmet>
@@ -72,16 +74,18 @@ const Notepad = () => {
     </Helmet>
     <Slate editor={editor} initialValue={value} onChange={handleSlateChange}>
      <Toolbar />
-     <div className=' h-[90vh] flex  justify-center items-center '>
-     <div className="w-11/12 h-full mt-[7.7rem] " ref={contentRef}>
+     <div className=' h-[90vh] flex  justify-center items-center ' >
+     <div className="w-11/12 h-full lg:mt-[7.7rem] mt-[8.5rem]" ref={contentRef} >
        <Editable
        onClick={handleClick}
         renderLeaf={renderLeaf}
         renderElement={renderElement}
         className="w-full min-h-[95%] bg-[whitesmoke] dark:border dark:border-[gray]  dark:text-white dark:bg-[#323232] outline-none rounded-sm p-2"
+        style={{pointerEvents: disableContents ? 'none' : 'auto'}}
         />
        </div>
       <SaveAs/>
+      <PrintLoader />
       <OpenFileLoader />
       <NotSaved />
      </div>

@@ -9,7 +9,7 @@ import Loader from './Loader/Loader';
         
         const [loaderTXT, setLoaderTXT] = useState<boolean>(false);
         const [loaderDocx, setLoaderDocx] = useState<boolean>(false);
-        const {setOpenSave, openSave} = useAppContext();
+        const {setOpenSave, openSave, setDisableContents} = useAppContext();
         const [filename, setFilename] = useState<string>('');
         const [errorMsg, setErrorMsg] = useState<boolean>(false);
 
@@ -23,7 +23,8 @@ import Loader from './Loader/Loader';
                 return;
             }
             setLoaderDocx(true)
-             
+            setDisableContents(true)
+
             axios.post('http://localhost:5000/api/ConvertToWord', data, {
                 headers: {
                     'Content-Type': 'application/json',
@@ -40,6 +41,7 @@ import Loader from './Loader/Loader';
                     link.remove();
                     setLoaderDocx(false)
                     setOpenSave(false)
+                    setDisableContents(false)
                 })
                 .catch((error: any) => {
                     console.error(error)
@@ -60,6 +62,7 @@ import Loader from './Loader/Loader';
                 return;
             }
             setLoaderTXT(true)
+            setDisableContents(true)
             if(textValues){
             const parsedContents = JSON.parse(textValues);
             const text: any = parsedContents.map((n: Node) => Node.string(n)).join('\n')
@@ -71,6 +74,7 @@ import Loader from './Loader/Loader';
             link.click();
             setLoaderTXT(false)
             setOpenSave(false)
+            setDisableContents(false)
             URL.revokeObjectURL(url);
             }
         }
@@ -96,8 +100,16 @@ import Loader from './Loader/Loader';
                 {errorMsg && <p className='absolute mt-8 right-8  text-[.60rem] text-red-500 '>Are you sure you made some changes?</p>}
             </form>
             <div className="flex w-full  justify-end px-10 gap-4 py-2">
-                <button className='bg-blue-400  hover:bg-[#3399ff]  transition-all px-1 text-xs font-semibold py-1 rounded-sm text-white' onClick={onClickSaveTXT}><p className={loaderTXT ? 'w-[70.4px]' : ''}>{loaderTXT ? <Loader /> : 'Save as Txt' }</p></button>
-                <button  className='bg-blue-400  hover:bg-[#3399ff]  transition-all px-1 text-xs font-semibold py-1 rounded-sm text-white' onClick={onClickSaveDOCX}><p className={loaderDocx ? 'w-[70.4px]' : ''}>{loaderDocx ? <Loader /> : 'Save as Docx' }</p></button>
+                {loaderDocx ? (
+                    <button className='bg-blue-400    transition-all px-1 text-xs font-semibold py-1 rounded-sm text-white' onClick={onClickSaveTXT} disabled><p className={loaderTXT ? 'w-[70.4px]' : ''}>{loaderTXT ? <Loader /> : 'Save as Txt' }</p></button>
+                ):(
+                    <button className='bg-blue-400  hover:bg-[#3399ff]  transition-all px-1 text-xs font-semibold py-1 rounded-sm text-white' onClick={onClickSaveTXT}><p className={loaderTXT ? 'w-[70.4px]' : ''}>{loaderTXT ? <Loader /> : 'Save as Txt' }</p></button>
+                )}
+               {loaderTXT ? (
+                 <button  className='bg-blue-400   transition-all px-1 text-xs font-semibold py-1 rounded-sm text-white' onClick={onClickSaveDOCX} disabled><p className={loaderDocx ? 'w-[70.4px]' : ''}>{loaderDocx ? <Loader /> : 'Save as Docx' }</p></button>
+               ):(
+                 <button  className='bg-blue-400  hover:bg-[#3399ff]  transition-all px-1 text-xs font-semibold py-1 rounded-sm text-white' onClick={onClickSaveDOCX}><p className={loaderDocx ? 'w-[70.4px]' : ''}>{loaderDocx ? <Loader /> : 'Save as Docx' }</p></button>
+               )}
             </div>
             </motion.div>
             }
