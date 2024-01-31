@@ -2,6 +2,6 @@
 
 First clone the server folder
 
-``js
+```js
 git clone https://github.com/TrupleCpu/QuickNotes/tree/main/server
 ```
