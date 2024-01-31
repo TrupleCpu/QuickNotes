@@ -1,4 +1,4 @@
-# QuickNotes
+# 📓 QuickNotes
 
 ## What is QuickNotes?
  QuickNotes is an online notepad that uses the slatejs library to build a rich text much better than the traditional <textarea>.
