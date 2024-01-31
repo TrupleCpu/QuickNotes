@@ -11,7 +11,7 @@ Then you need to reinstall the vite + react
 ```js
 npm init @vitejs/app my-vite-app --template react
 ```
-After that use this command to run the program
+Lastly, use this command to run the program
 
 ```js
 npm run dev
