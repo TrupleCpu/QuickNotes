@@ -23,4 +23,5 @@
   - mammoth
   - multer
   - nodemon
+  - express
 
