@@ -5,7 +5,7 @@
 
 ### Front-End language used
   - Typescript
-### Libariries used
+#### Libariries used
    - Slatejs
    - axios
    - slate-history
@@ -19,6 +19,7 @@
  
 ## Back-End language used
   - Javascript
+  
 
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
