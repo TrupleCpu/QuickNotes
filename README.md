@@ -1,7 +1,7 @@
 # QuickNotes
 
 ## What is QuickNotes?
- QuickNotes is an online notepad that uses the slatejs rich tanng ina mo
+ QuickNotes is an online notepad that uses the slatejs library to build a rich text much better than the traditional <textarea>.
 
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
