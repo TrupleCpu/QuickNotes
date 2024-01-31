@@ -3,7 +3,7 @@
 ## What is QuickNotes?
  QuickNotes is an online notepad that uses the slatejs library to build a rich text much better than the traditional <textarea>.
 
-### Front-End language used
+## Front-End language used
   - React + Vite + Typescript 
 #### Libraries used
    - Slatejs
@@ -17,7 +17,7 @@
    - react-spinners
    - react-router-dom
  
-### Back-End language used
+## Back-End language used
   - Javascript - expressjs
 #### Libraries used
   - mammoth
