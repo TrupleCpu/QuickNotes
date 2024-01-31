@@ -11,4 +11,4 @@ After that use this command to run the program
 npm run dev
 ```
 
-## HAPPY CODING :smile:
+## HAPPY CODING! :smile:
