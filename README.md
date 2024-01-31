@@ -5,6 +5,18 @@
 
 ### Front-End language used
   - Typescript
+### Libariries used
+   - Slatejs
+   - axios
+   - slate-history
+   - aos
+   - framer-motio
+   - react-helmet
+   - react-icons
+   - react-to-print
+   - react-spinners
+   - react-router-dom
+ 
 ## Back-End language used
   - Javascript
 
