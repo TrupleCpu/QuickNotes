@@ -18,7 +18,8 @@
    - react-router-dom
    - react-top-loading-bar
    - is-hotkey
- 
+ <p style='color:red'>This is some red text.</p>
+
 ## Back-End language used
   - Javascript - expressjs
 #### Libraries used
