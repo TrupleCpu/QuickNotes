@@ -27,5 +27,10 @@ Use this command to run the program:
 ```js
 npm run dev
 ```
+# Troubleshooting
 
-## HAPPY CODING 😺!
+If you encounter any issues, please check the following:
+- Make sure all the prerequisites are installed.
+- Ensure you're in the correct directory when running the commands.
+
+## HAPPY CODING! 😺
