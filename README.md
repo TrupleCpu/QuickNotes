@@ -29,7 +29,7 @@
 
 ##### Visit the website https://quick-notes-eta.vercel.app
 
-# HAPPY CODING 😸!
+# HAPPY CODING! 😸
 
 > **NOTE:** To clone the project, please navigate to the `client` and `server` folders where you'll find further instructions.
 
