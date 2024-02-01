@@ -117,7 +117,7 @@ const isBlockActive = (editor: any, format: any, blockType = 'type') => {
 
   return !!match
 }
-const toggleMark = (editor: any, format: string) => {
+export const toggleMark = (editor: any, format: string) => {
   const isActive = isMarkActive(editor, format);
 
   if (isActive) {

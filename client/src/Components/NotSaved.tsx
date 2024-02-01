@@ -1,8 +1,11 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useAppContext } from './Context/AppContextProvider'
+import { useEffect } from 'react';
 
 
 const NotSaved = () => {
+
+   
   const {setOpenSave, setNotSave, notSave, setDisableContents} = useAppContext();
   
   const handleClick = () => {

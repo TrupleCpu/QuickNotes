@@ -11,14 +11,23 @@ import NotSaved from "./NotSaved";
 import OpenFileLoader from "./Loader/OpenFileLoader";
 import { withHistory } from "slate-history";
 import PrintLoader from "./Loader/PrintLoader";
+import isHotkey from "is-hotkey";
+import {toggleMark} from './Toolbar'
 
 interface CustomText extends Text {
     color?: string
     font?: string
     size?: string
 }
+const HOTYKEYS: any = {
+    'mod+b': 'bold',
+    'mod+i': 'italics',
+    'mod+u': 'underline'
+}
 
 const Notepad = () => {
+
+
     const {setOpenMenu, contentRef, setOpenSave, disableContents} = useAppContext();
     const [text, setText] = useState<any[]>([]);
     const editor = useMemo(() => withHistory(withReact(createEditor())), []);
@@ -80,6 +89,15 @@ const Notepad = () => {
        onClick={handleClick}
         renderLeaf={renderLeaf}
         renderElement={renderElement}
+        onKeyDown={event => {
+            for(const hotkeys in HOTYKEYS){
+                if(isHotkey(hotkeys, event as any)){
+                    event.preventDefault();
+                    const mark = HOTYKEYS[hotkeys];
+                    toggleMark(editor, mark)
+                }
+            }
+        }}
         className="w-full min-h-[95%] bg-[whitesmoke] dark:border dark:border-[gray]  dark:text-white dark:bg-[#323232] outline-none rounded-sm p-2"
         style={{pointerEvents: disableContents ? 'none' : 'auto'}}
         />

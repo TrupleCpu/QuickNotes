@@ -11,7 +11,7 @@ const Navbar = () => {
    }
    
   return (
-  <div  className="flex justify-between lg:px-10 px-3 py-3 bg-[whitesmoke] border-b ">
+  <div  className=" flex justify-between lg:px-10 px-3   h-[56.67px] bg-[whitesmoke] border-b ">
    <div onClick={() => window.location.reload()} className='flex gap-2 items-center cursor-pointer'>
       <img className='w-8' src={NoteIcon} />
      <p className='font-bold'>QuickNotes</p>
