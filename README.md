@@ -18,8 +18,7 @@
    - react-router-dom
    - react-top-loading-bar
    - is-hotkey
- <p style='color:red'>This is some red text.</p>
-
+     
 ## Back-End language used
   - Javascript - expressjs
 #### Libraries used
@@ -31,5 +30,7 @@
 ##### Visit the website https://quick-notes-eta.vercel.app
 
 # HAPPY CODING 😸!
+
+> **NOTE:** To clone the project, please navigate to the `client` and `server` folders where you'll find further instructions.
 
 
