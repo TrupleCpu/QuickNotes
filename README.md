@@ -16,6 +16,8 @@
    - react-to-print
    - react-spinners
    - react-router-dom
+   - react-top-loading-bar
+   - is-hotkey
  
 ## Back-End language used
   - Javascript - expressjs
@@ -26,5 +28,7 @@
   - express
 
 ##### Visit the website https://quick-notes-eta.vercel.app
+
+# HAPPY CODING 😸!
 
 
