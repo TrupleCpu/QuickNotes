@@ -23,8 +23,9 @@
    - react-top-loading-bar
    - is-hotkey
      
-## Back-End language used
-  - Javascript - expressjs
+## Back-End 
+  - **Javascript**: The main programming language used.
+  - **Express.js**: A fast, unopinionated, and minimalist web framework for Node.js.
 #### Libraries used
   - mammoth
   - multer
