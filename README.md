@@ -3,8 +3,12 @@
 ## What is QuickNotes?
  QuickNotes is an online notepad that uses the slatejs library to build a rich text much better than the traditional <textarea>.
 
-## Front-End language used
-  - React + Vite + Typescript 
+## Front-End 
+ - **React**: A javascript library for building user interfaces.
+ - **Vite**: A build tool that aims to provide a faster and leaner development experience for modern web projects.
+ - **Typescript**: A strongly typed superset of Javascript that adds static types.
+## CSS Framework: 
+  - **Tailwind Css**: A utility-first CSS framework used for styling the project.
 #### Libraries used
    - Slatejs
    - axios
